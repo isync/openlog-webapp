@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title><% IF title %><% title %> | openlog<% ELSE %>openlog<% END %></title>
+	<meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+	<meta name="robots" content="noindex,noarchive,nofollow">
+	<script type="text/javascript" src="<% request.uri_base %>/res/jquery.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/png">
+	<link rel="stylesheet" type="text/css" href="/res/style.css">
+	<% header %>
+</head>
+<body>
+	<div id="head">
+		<h1>OPENLOG</h1>
+	</div>
+	<div id="page">
+
+		<% content %>
+	</div>
+</body>
+</html>

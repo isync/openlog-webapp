@@ -1,0 +1,29 @@
+TODO
+====
+
+* Bundle the webapp as a proper Perl module and
+  release it on cpan as App::Openlog
+
+* event-sources and event-targets don't have their
+  own db table, and are/have to be harcoded into
+  the config.yml file
+
+* Mature db format and probably move away from the
+  current "pseudo-doc store in a SQL db" to a proper
+  indexed NoSQL db to handle our JSON blobs.
+
+* write a GUI interface to add/edit/delete event-
+  sources and event-targets
+
+* right now, event-source polling and event-target
+  push is not a real background process but has to
+  be triggered manually
+
+* Greasemonkey Plug-In is incomplete
+
+* Nicer event logging, with more assistance
+
+* Nicer interface, probably with a graphical timeline
+  and event-bubbles
+
+* Make the webapp skinnable through html+css themes

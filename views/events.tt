@@ -1,0 +1,7 @@
+<div>
+	<a href="/"><% l('My events') %></a> | <a href="/log"><% l('Log an event') %></a> | <% l('Manage events') %> | <a href="/manage-events"><% l('Manage event sources') %></a>
+</div>
+
+<h2><% l('Manage events') %></h2>
+
+<% simple_crud %>

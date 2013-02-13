@@ -1,0 +1,92 @@
+// ==UserScript==
+// @name           Openlog Greasemonkey Browser Add-On
+// @version        0.1
+// @namespace      https://github.com/opnlg/openlog-webapp
+// @author         openlog
+// @description    This plugin logs in-browser media plays to an openlog server
+// @include        http://*.youtube.com/watch?*
+// @include        https://*.youtube.com/watch?*
+// ==/UserScript==
+
+
+// == user-settings ==
+// When you install this Add-On via the openlog server's interface,
+// values here should be filled-in automatically for you
+
+var cfg = new Array();
+cfg['openlog.server.host']	= '<% l('openlog_server_host') %>';
+cfg['openlog.server.port']	= '<% l('openlog_server_port') %>';
+cfg['openlog.auth.key']		= '<% l('openlog_auth_key') %>';
+
+
+// == nothing to change below this line ==
+
+if( location.href.match(/youtube/) ){
+	var data = {
+		"auth": {
+			"key": cfg['openlog.auth.key']
+		}
+	};
+	alert('openlog!');
+}
+
+
+
+// == functions below ==
+
+function sendRequest(cfg,data)
+	GM_xmlhttpRequest({
+		method: 'POST',
+		url: cfgcfg['openlog.server.host'] +':'+ cfg['openlog.server.port'],
+		headers: {
+			'User-agent': 'Mozilla/4.0 (compatible) openlog greasemonkey browser plug-in',
+			'Accept': 'application/json',
+		},
+		data: data,
+		onload: function (responseDetails){
+			var response = responseDetails.responseText;
+
+			if (response == ''){
+				// do nothing on empty responses, for now
+				return;
+			}
+
+			var Data = JSON.parse(response);
+			alert(dump(Data));
+		}
+	});
+}
+
+	function getTitle()
+	{
+		var title = document.getElementById("eow-title");
+		if (title)
+			return title.getAttribute("title").replace(/^\s+/, "").replace(/\s+$/, "");
+		else
+			return document.title.substr(10);
+	}
+
+function dump(arr,level) {
+	var dumped_text = "";
+	if(!level) level = 0;
+	
+	//The padding given at the beginning of the line.
+	var level_padding = "";
+	for(var j=0;j<level+1;j++) level_padding += "    ";
+	
+	if(typeof(arr) == 'object') { //Array/Hashes/Objects 
+		for(var item in arr) {
+			var value = arr[item];
+			
+			if(typeof(value) == 'object') { //If it is an array,
+				dumped_text += level_padding + "'" + item + "' ...\n";
+				dumped_text += dump(value,level+1);
+			} else {
+				dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
+			}
+		}
+	} else { //Stings/Chars/Numbers etc.
+		dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+	}
+	return dumped_text;
+}

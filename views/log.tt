@@ -1,0 +1,101 @@
+<div>
+	<a href="/"><% l('My events') %></a> | <% l('Log an event') %> | <a href="/events"><% l('Manage events') %></a> | <a href="/manage-events"><% l('Manage event sources') %></a>
+</div>
+
+<h2><% l('What are you doing?') %></h2>
+<% IF audio %>
+<a href="/log"><% l('Generic') %></a> | <% l('Audio') %> | <a href="/log?video=1"><% l('Video') %></a>
+<form method="post">
+	<input type="hidden" name="manual" value="1">
+	<fieldset>
+	<% l('What') %>: <% l('Audio') %></label>
+	<input type="hidden" name="what_category" value="Audio">
+	<select name="what_sub-category">
+		<option value=""></option>
+		<option value="Track"><% l('Track') %></option>
+	</select>
+	<input type="text" name="what_description">
+	<br>
+	<label for="where"><% l('Where') %>:</label>	<input type="text" name="where">
+	<select name="where_suggestion">
+		<option value=""></option>
+		<% FOREACH where_suggestion IN where_suggestions %>
+			<option><% where_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<label for="with"><% l('With') %>:</label>		<input type="text" name="with">
+	<select name="with_suggestion" size="3" multiple="multiple">
+		<option value=""></option>
+		<% FOREACH with_suggestion IN with_suggestions %>
+			<option><% with_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<input type="submit" value="<% l('Log') %>">
+</form>
+<% ELSIF video %>
+<a href="/log"><% l('Generic') %></a> | <a href="/log?audio=1"><% l('Audio') %></a> | <% l('Video') %>
+<form method="post">
+	<input type="hidden" name="manual" value="1">
+	<fieldset>
+	<% l('What') %>: <% l('Video') %>
+	<input type="hidden" name="what_category" value="Video">
+	<select name="what_sub-category">
+		<option value=""></option>
+		<option value="Movie"><% l('Movie') %></option>
+		<option value="TV Series"><% l('TV Series') %></option>
+		<option value="TV Show"><% l('TV Show') %></option>
+	</select>
+	<input type="text" name="what_description">
+	<br>
+	<label for="where"><% l('Where') %>:</label>	<input type="text" name="where">
+	<select name="where_suggestion">
+		<option value=""></option>
+		<% FOREACH where_suggestion IN where_suggestions %>
+			<option><% where_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<label for="with"><% l('With') %>:</label>		<input type="text" name="with">
+	<select name="with_suggestion" size="3" multiple="multiple">
+		<option value=""></option>
+		<% FOREACH with_suggestion IN with_suggestions %>
+			<option><% with_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<input type="submit" value="<% l('Log') %>">
+</form>
+<% ELSE %>
+<% l('Generic') %> | <a href="/log?audio=1"><% l('Audio') %></a> | <a href="/log?video=1"><% l('Video') %></a>
+<form method="post">
+	<input type="hidden" name="manual" value="1">
+	<fieldset>
+	<label for="what"><% l('What') %>:</label>		<input type="text" name="what">
+	<select name="what_suggestion">
+		<option value=""></option>
+		<% FOREACH what_suggestion IN what_suggestions %>
+			<option><% what_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<label for="where"><% l('Where') %>:</label>	<input type="text" name="where">
+	<select name="where_suggestion">
+		<option value=""></option>
+		<% FOREACH where_suggestion IN where_suggestions %>
+			<option><% where_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<label for="with"><% l('With') %>:</label>		<input type="text" name="with">
+	<select name="with_suggestion" size="3" multiple="multiple">
+		<option value=""></option>
+		<% FOREACH with_suggestion IN with_suggestions %>
+			<option><% with_suggestion %></option>
+		<% END %>
+	</select>
+	<br>
+	<input type="submit" value="<% l('Log') %>">
+</form>
+<% END %>

@@ -1,0 +1,56 @@
+appname: "openlog"
+layout: "main"
+charset: "UTF-8"
+template: "template_toolkit"
+engines:
+  template_toolkit:
+    encoding:  'utf8'
+    start_tag: '<%'
+    end_tag:   '%>'
+logger: "console"
+log: "debug"
+warnings: 0
+show_errors: 1
+auto_reload: 0
+
+session: "cookie"
+session_cookie_key: "some-random-string"
+session_name: "openlog"
+
+plugins:
+  Database:
+    driver: "SQLite"
+    database: "openlog.sqlite"
+
+# right now, managing event source has no GUI in the app. Sources have to be provided by hand:
+# (below user accounts normally point all to you. The examples point to random users for demo purposes)
+event-sources:
+  1:
+    type: "Atom"
+    uri: "https://github.com/jquery.atom"
+    service: "GitHub"
+    username: "jquery"
+  2:
+    type: "Twitter"
+    service: "Twitter"
+    username: "youraccount"
+  3:
+    type: "Last.fm"
+    service: "Last.fm"
+    username: "hoff"
+  4:
+    type: "Atom"
+    uri: "http://stackoverflow.com/feeds/user/22656"
+    service: "stackoverflow"
+    username: "jon-skeet"
+  5:
+    type: "MPlayerLog"
+    uri: "file:///dev/shm/mplayer.log"
+    service: "SMPlayer"
+
+event-targets:
+  1:
+    type: "Twitter"
+    service: "Twitter"
+    username: "youraccount"
+    password: "yourtwitterpass"

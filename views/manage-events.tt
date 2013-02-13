@@ -1,0 +1,13 @@
+<div>
+	<a href="/"><% l('My events') %></a> | <a href="/log"><% l('Log an event') %></a> | <a href="/events"><% l('Manage events') %></a> | <% l('Manage event sources') %>
+</div>
+
+<h2><% l('Manage event sources') %></h2>
+
+<a href="/manage-events/poll_event-sources">poll_event-sources</a> | <a href="/manage-events/greasemonkey/openlog.user.js">Install Greasemonkey script</a>
+
+<div style="float: right;">
+	<% graph %>	
+</div>
+
+<% listing %>
