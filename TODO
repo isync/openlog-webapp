@@ -8,6 +8,12 @@ TODO
   own db table, and are/have to be harcoded into
   the config.yml file
 
+* Past polled data (to know which entries from
+  event-sources are new and which ones are old) is
+  written into a JSON file, polls.json, which parses
+  quite fast but is no satisfying substitute for a
+  proper db table or similar
+
 * Mature db format and probably move away from the
   current "pseudo-doc store in a SQL db" to a proper
   indexed NoSQL db to handle our JSON blobs.
