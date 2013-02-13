@@ -78,7 +78,13 @@ sort of an inofficial RFC can be found [here](https://raw.github.com/opnlg/openl
 
 Copyright 2012-2013 Openlog Initiative
 
-Licensed under the GNU Free Documentation License Version 1.3.
-You may obtain a copy of the License in the LICENSE file, or at:
+Openlog software, like this webapp here, is licensed under the GNU
+GPL 3.0 license. You may obtain a copy of the License in the LICENSE
+file, or at:
+
+[http://www.gnu.org/licenses/gpl](http://www.gnu.org/licenses/gpl)
+
+Documentation is licensed under the GNU Free Documentation License
+Version 1.3. You may obtain a copy of the License at:
 
 [http://www.gnu.org/licenses/fdl-1.3](http://www.gnu.org/licenses/fdl-1.3)
