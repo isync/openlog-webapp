@@ -9,7 +9,7 @@ in action.
 The Openlog web-app is a Perl application written on-top of the
 light Dancer application framework. To install/ test it do:
 
-    wget https://github.com/opnlg/openlog-images/archive/master.zip
+    wget https://github.com/opnlg/openlog-webapp/archive/master.zip
     unzip master.zip
     cd openlog-webapp-master
 
